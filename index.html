@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icono.png" type="image/x-icon">
+    <title>Reloj - Clock</title>
+</head>
+
+<body>
+    <header>
+        <section class="titulo">
+            <div class="titulo-header">
+                <h1>
+                    Reloj - Clock
+                </h1>
+            </div>
+        </section>
+        <!--Creamos el reloj-->
+        <section class="clock">
+            <div class="reloj">
+                <div class="hora">
+                    <div class="hr" id="hr"></div>
+                </div>
+                <div class="minutos">
+                    <div class="mn" id="mn"></div>
+                </div>
+                <div class="segundos">
+                    <div class="sg" id="sg"></div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <!--Configuracion Reloj-->
+    <script type="text/javascript">
+        const deg = 6;
+        const hr = document.querySelector('#hr');
+        const mn = document.querySelector('#mn');
+        const sc = document.querySelector('#sg');
+
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            hr.style.transform = `rotatez(${(hh)+(mm/12)}deg)`;
+            mn.style.transform = `rotatez(${mm}deg)`;
+            sc.style.transform = `rotatez(${ss}deg)`;
+        })
+    </script>
+</body>
+
+</html>
